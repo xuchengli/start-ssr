@@ -1,0 +1,24 @@
+{
+  "name": "start-ssr",
+  "version": "1.0.0",
+  "description": "It is for Vue SSR study.",
+  "main": "index.js",
+  "scripts": {
+      "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuchengli/start-ssr.git"
+  },
+  "author": "Li Xu Cheng (lixucheng@aliyun.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuchengli/start-ssr/issues"
+  },
+  "homepage": "https://github.com/xuchengli/start-ssr#readme",
+  "dependencies": {
+    "koa": "^2.5.2",
+    "vue": "^2.5.17",
+    "vue-server-renderer": "^2.5.17"
+  }
+}
