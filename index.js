@@ -19,7 +19,10 @@ app.use(async ctx => {
         },
         template: `<div>当前访问的地址是：{{ url }}</div>`
     });
-    const html = await renderer.renderToString(vueApp);
+    const context = {
+        title: 'Vue SSR测试'
+    };
+    const html = await renderer.renderToString(vueApp, context);
     ctx.body = html;
 });
 app.listen(8080, () => {
