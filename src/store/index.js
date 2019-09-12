@@ -16,7 +16,8 @@ export function createStore() {
     },
     actions: {
       async fetchItem({ commit }, id) {
-        commit('setItem', await fetchItem(id));
+        const item = await fetchItem(id);
+        commit('setItem', { id, item });
       },
     },
   });

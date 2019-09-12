@@ -16,5 +16,5 @@ const items = [
   },
 ];
 export function fetchItem(id) {
-  return Promise.resolve(items.find(item => item.id === id));
+  return Promise.resolve(items.find(item => item.id === parseInt(id)));
 }
