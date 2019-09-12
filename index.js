@@ -1,4 +1,6 @@
 const Koa = require('koa');
+const serve = require('koa-static');
+const mount = require('koa-mount');
 const { createBundleRenderer } = require('vue-server-renderer');
 const serverBundle = require('./dist/vue-ssr-server-bundle.json');
 const clientManifest = require('./dist/vue-ssr-client-manifest.json');
@@ -18,13 +20,12 @@ app.use(async (ctx, next) => {
         ctx.body = err.message;
     }
 });
+app.use(mount('/dist', serve('dist')));
 app.use(async ctx => {
-    // const vueApp = createApp({ url: ctx.path });
-    // const context = {
-    //     title: 'Vue SSR测试'
-    // };
-    // const html = await renderer.renderToString(vueApp, context);
-    const context = { url: ctx.path };
+    const context = {
+      title: 'Vue SSR测试',
+      url: ctx.path,
+    };
     const html = await renderer.renderToString(context);
     ctx.body = html;
 });
